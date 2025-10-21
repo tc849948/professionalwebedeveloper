@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Web Developer | Affordable & Stunning Websites</title>
+    <meta name="google-site-verification" content="google9bb0559d203e5ff2.html" />
+    <style>
+        :root {
+            --primary-color: #2E8B57; /* Sea Green */
+            --secondary-color: #3CB371; /* Medium Sea Green */
+            --dark-color: #1E5631;
+            --light-color: #E4F5E4;
+            --text-color: #333;
+            --white: #FFFFFF;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .logo span {
+            color: var(--light-color);
+        }
+        
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 0.5rem 0;
+            position: relative;
+            font-size: 0.95rem;
+        }
+        
+        nav ul li a:hover {
+            color: var(--light-color);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: var(--light-color);
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .main-content {
+            margin-top: 70px;
+            padding: 2rem 0;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(46, 139, 87, 0.8), rgba(46, 139, 87, 0.9)), url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            padding: 0 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 0.7rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+        
+        .btn:hover {
+            background-color: var(--dark-color);
+        }
+        
+        section {
+            padding: 2.5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            font-size: 1.8rem;
+        }
+        
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .service-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .service-img {
+            height: 180px;
+            background-color: var(--light-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 2.5rem;
+        }
+        
+        .service-content {
+            padding: 1.2rem;
+        }
+        
+        .service-content h3 {
+            margin-bottom: 0.8rem;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+        
+        .service-content p {
+            font-size: 0.95rem;
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 2.5rem 0 1rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 1.2rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background-color: var(--light-color);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-column p {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            color: var(--light-color);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 0.6rem;
+        }
+        
+        .footer-column ul li a {
+            color: var(--light-color);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--white);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+        
+        .social-links a {
+            color: var(--white);
+            background-color: var(--secondary-color);
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--dark-color);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 1.2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.85rem;
+        }
+        
+        /* Form styles */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.7rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 0.95rem;
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.7rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 80%;
+                height: calc(100vh - 70px);
+                background-color: var(--primary-color);
+                transition: left 0.3s ease;
+                padding: 1.5rem;
+                box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            }
+            
+            nav.active {
+                left: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 0.8rem 0;
+            }
+            
+            .hero {
+                padding: 3rem 0;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .service-img {
+                height: 150px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .logo {
+                font-size: 1.3rem;
+            }
+            
+            .hero {
+                padding: 2.5rem 0;
+            }
+            
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+            
+            .btn {
+                padding: 0.6rem 1.3rem;
+                font-size: 0.9rem;
+            }
+            
+            section {
+                padding: 2rem 0;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+                margin-bottom: 1.2rem;
+            }
+            
+            .services {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-form {
+                padding: 1.2rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-column {
+                margin-bottom: 1.5rem;
+            }
+            
+            .footer-column:last-child {
+                margin-bottom: 0;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .hero h1 {
+                font-size: 1.4rem;
+            }
+            
+            .hero p {
+                font-size: 0.95rem;
+            }
+            
+            .section-title {
+                font-size: 1.4rem;
+            }
+        }
+    
+    .profile-image-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.profile-image:hover {
+    transform: scale(1.05);
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">Professional <span>Websites Development</span></div>
+            <div class="menu-toggle">☰</div>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section id="home" class="hero">
+            <div class="container">
+                <h1>Professional, Affordable, and Stunning Websites – Tailored Just for You!</h1>
+                <p>In present day digital age, it is critical to have a expert, brief, and mobile-friendly  website.
+                                
+                 Whether or not you're a none profit organization enterprise looking to spread your message, a musician trying to display your capabilities, a business enterprise aiming to draw in more customers, or an educational organization looking to make getting to know easier, a well-made websites is critical for attaining achievement.
+               </p>
+                <a href="#contact" class="btn">Get Your Website Now</a>
+                <p>Or you can hire me as a web developer at your Organization if you believe in my ability</p>
+            </div>
+        </section>
+
+        <section id="services" class="services-section">
+            <div class="container">
+                <h2 class="section-title">Why Choose My Services?</h2>
+                <div class="services">
+                    <div class="service-card">
+                        <div class="service-img">
+                            <span>📱</span>
+                        </div>
+                        <div class="service-content">
+                            <h3>Fully Responsive Design</h3>
+                         
+                            <p>Your website will look perfect on any device.
+                        </p>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-img">
+                            <span>⚡</span>
+                        </div>
+                        <div class="service-content">
+                            <h3>Fast & Safe</h3>
+                            <p>Refined for speed performances and developed with safety in thoughts.</p>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-img">
+                            <span>🔍</span>
+                        </div>
+                        <div class="service-content">
+                            <h3>SEO-Friendly</h3>
+                            <p>Making your website get ranked higher on search engines like Google.</p>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-img">
+                            <span>📊</span>
+
+                                 
+                        </div>
+                      <div class="service-content">
+                            <h3>Database Intergration For your website</h3>
+                            <p>Get your website linked with a unique Database.</p>
+                        </div>
+                    </div>
+                
+                        <div class="service-card">
+                        <div class="service-img">
+                            <span>📨</span>
+                        </div>
+                        <div class="service-content">
+                            <h3>Email Automations</h3>
+                            <p>Send 250 emails per day </p>
+                        </div>
+ 
+                    <div class="service-card">
+                        <div class="service-img">
+                            <span>💰</span>
+                        </div>
+                        <div class="service-content">
+                            <h3>Affordable Pricing</h3>
+                            <p>Premium and advanced quality with an inexpensive cost.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio" class="portfolio-section">
+            <div class="container">
+                <h2 class="section-title">What I Specialize In</h2>
+                <div class="services">
+                    <div class="service-card">
+                        <div class="service-img">
+                            <span>🌍</span>
+                        </div>
+                        <div class="service-content">
+                            <h3>NGO Websites</h3>
+                            <p>Demonstrate your mission, attract donors, and make an impression.</p>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-img">
+                            <span>🎵</span>
+                        </div>
+                        <div class="service-content">
+                            <h3>Music Websites</h3>
+                            <p>Further your music, sell your music, and link with your audience online.</p>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-img">
+                            <span>💼</span>
+                        </div>
+                        <div class="service-content">
+                            <h3>Business Websites</h3>
+                            <p>Increase your brand and grow revenue.</p>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-img">
+                            <span>📚</span>
+                        </div>
+                        <div class="service-content">
+                            <h3>Education Websites</h3>
+                            <p>Online courses, school portals, and studying websites.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+    <div class="container">
+        <div class="profile-image-container">
+            <a href="#about" class="profile-image-link">
+                <img src="1745007872752.jpg" alt="" class="profile-image">
+            </a>
+        </div>
+        <h2 class="section-title">About Me</h2>
+        
+        <p>Hi! My name is CHUOL DAMAI GAI and I am a professional website developer, committed to growing high-quality, responsive, and visually impressive websites at an affordable prices. I probably know that each business, artist, and organization has definite needs, that is why I come up with a fitted websites that matches your needs.</p>
+    </div>
+</section>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <p style="text-align: center; margin-bottom: 1.5rem;">Ready to build your dream website? Contact me today for a free consultation!</p>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+                <div style="text-align: center; margin-top: 2rem;">
+                    <p>Or reach me directly:</p>
+                    <p><strong>Phone:</strong> <a href="tel:+254707314786" style="color: var(--primary-color);">+254 707314786</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:chuoldamai425@gmail.com" style="color: var(--primary-color);">chuoldamai425@gmail.com</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Professional Websites Development</h3>
+                    <p>Creating affordable, responsive, and stunning websites tailored to your needs.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">f</a>
+                        <a href="#" aria-label="Twitter">t</a>
+                        <a href="#" aria-label="LinkedIn">in</a>
+                        <a href="#" aria-label="Instagram">ig</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">NGO Websites</a></li>
+                        <li><a href="#">Music Websites</a></li>
+                        <li><a href="#">Business Websites</a></li>
+                        <li><a href="#">Education Websites</a></li>
+                        <li><a href="#">Custom Solutions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li>Kakuma, Kenya</li>
+                        <li>Phone: +254 707314786</li>
+                        <li>Email: chuoldamai425@gmail.com</li>
+                        <li>Available 24/7</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> Professional Web Developer. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Update the year automatically
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // Mobile menu toggle
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.getElementById('main-nav').classList.toggle('active');
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 70,
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                document.getElementById('main-nav').classList.remove('active');
+            });
+        });
+        
+        // Close menu when clicking outside on mobile
+        document.addEventListener('click', function(e) {
+            const nav = document.getElementById('main-nav');
+            const menuToggle = document.querySelector('.menu-toggle');
+            
+            if (nav.classList.contains('active') && 
+                e.target !== menuToggle && 
+                !menuToggle.contains(e.target) && 
+                e.target !== nav && 
+                !nav.contains(e.target)) {
+                nav.classList.remove('active');
+            }
+        });
+    </script>
+    <script>
+// Enhanced Protection Script for All Devices
+document.addEventListener('DOMContentLoaded', function() {
+    // Disable right-click context menu on all devices
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+        
+        return false;
+    });
+
+    // Disable copy/paste keyboard shortcuts and touch gestures
+    document.addEventListener('keydown', function(e) {
+        // Disable Ctrl+C, Ctrl+X, Ctrl+V, Cmd+C, Cmd+X, Cmd+V (Mac)
+        if ((e.ctrlKey || e.metaKey) && 
+            (e.keyCode === 67 || e.keyCode === 86 || e.keyCode === 88)) {
+            e.preventDefault();
+            
+            return false;
+        }
+        
+        // Disable right-click key (some keyboards)
+        if (e.keyCode === 93) {
+            e.preventDefault();
+            return false;
+        }
+        
+        // Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U, Cmd+Opt+I (Mac)
+        if (e.keyCode === 123 || 
+            ((e.ctrlKey || e.metaKey) && e.shiftKey && e.keyCode === 73) || 
+            ((e.ctrlKey || e.metaKey) && e.shiftKey && e.keyCode === 74) ||
+            ((e.ctrlKey || e.metaKey) && e.keyCode === 85)) {
+            e.preventDefault();
+            alert('Developer tools are restricted on this website');
+            return false;
+        }
+    });
+
+    // Disable text selection (makes copying harder)
+    document.addEventListener('selectstart', function(e) {
+        e.preventDefault();
+        return false;
+    });
+
+    
+    // Prevent dragging images (common way to save them)
+    document.addEventListener('dragstart', function(e) {
+        if (e.target.tagName === 'IMG') {
+            e.preventDefault();
+            return false;
+        }
+    });
+
+    // Extra protection against iframe embedding
+    if (window.location !== window.parent.location) {
+        window.top.location = window.location;
+    }
+
+    // Hide content until page fully loads (basic obfuscation)
+    document.body.style.visibility = 'hidden';
+    window.addEventListener('load', function() {
+        document.body.style.visibility = 'visible';
+    });
+});
+
+// Advanced obfuscation technique
+(function() {
+    // Disable console methods
+    if (typeof console !== "undefined") {
+        if (typeof console.log !== "undefined") {
+            console.log = function() {};
+        }
+        if (typeof console.warn !== "undefined") {
+            console.warn = function() {};
+        }
+        if (typeof console.error !== "undefined") {
+            console.error = function() {};
+        }
+    }
+    
+    // Prevent opening new windows/tabs
+    window.open = function() { return null; };
+})();
+</script>
+</body>
+</html>
